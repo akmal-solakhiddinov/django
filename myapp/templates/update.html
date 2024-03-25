@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %} Tasks || Update {% endblock %}
+{%block content %}
+<h1>Update Task</h1>
+
+<div>
+  <fieldset class="form-container">
+    <legend>Form</legend>
+
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  </fieldset>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %} Tasks || Management {% endblock %}
+{% block content %}
+<h1>Your Tasks</h1>
+
+<div class="card-group">
+  {% for task in tasks %}
+
+  <fieldset class="card">
+    <legend><h1>{{task.title}}</h1></legend>
+    <p>{{task.description}}</p>
+    <span>{{task.priority}}</span>
+    <span>{{task.due_date}}</span>
+    <span>{{task.created_at}}</span>
+    <hr />
+    <div>
+      <span>{{task.priority}}</span>
+      <div>
+        <a href="{% url 'update' task.id %}">Edit</a> &nbsp;
+        <a href="{% url 'delete' task.id %}">Delete</a>
+      </div>
+    </div>
+  </fieldset>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
